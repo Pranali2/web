@@ -1,0 +1,265 @@
+<html>
+<head>
+ <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Watchcart</title>
+    <link href="pqr.css" rel="stylesheet">
+    <link href="carousel.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+<style>
+html,body {
+	margin: 0;
+	padding: 0;
+        background-color:#AEB6BF ;
+	background-image: url(d5.jpg);
+}
+.slider {
+	width: 1600px;
+	margin: 2em auto;
+	
+}
+
+.slider-wrapper {
+	width: 100%;
+	height: 600px;
+	position: relative;
+}
+
+.slide {
+	float: left;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	transition: opacity 2s linear;
+}
+
+.slider-wrapper > .slide:first-child {
+	opacity: 8;
+}
+*{ margin:0px;
+padding:0px;
+}
+#container ul{
+list-style:none;
+}
+#container ul li{
+background-color:black;
+width:200px;
+/*border:1px solid white;*/
+height:50px;
+line-height:50px;
+text-align:center;
+float:left;
+color:white;
+font-size:20px;
+position:relative;
+opacity:.8;
+
+}
+#container ul li:hover{
+color:green;
+}
+#container ul ul{
+display:none;}
+#container ul li:hover > ul{ display:block;}
+#container ul ul ul {margin-left:100px;
+top:0px;
+position:absolute;
+}
+
+.abc {
+margin: 1em 0 0.5em 0;
+	color:#343434;
+	font-weight: normal;
+	font-family: 'Ultra', sans-serif;   
+	font-size: 40px;
+	line-height: 0px;
+	text-transform: uppercase;
+	text-shadow: 0 2px white, 0 3px #777; 
+	text-align:center;}
+body{
+font-family:"arial",serif;
+background-color:#f4f4f4;
+overflow-x:hidden;
+}
+.navbar{
+background-color:#3b5998;
+overflow:hidden;
+height:63px;
+}
+.navbar a{
+float:left;
+display:block;
+color:#f2f2f2;
+text-align:center;
+padding:14px 16px;
+font-size:17px;
+}
+.navbar ul{
+margin:8px 0 0 0;
+list-style:none;
+}
+.navbar a:hover{
+background-color:#ddd;
+color:#000;
+}
+.side-nav{
+height:100%;
+width:0;
+position:fixed;
+z-index:1;
+top:0;
+right:0;
+background-color:#111;
+opacity:.9;
+overflow-x:hidden;
+padding-top:60px;
+transition:0.5s;
+}
+.side-nav a{
+padding:10px 10px 0px 30px;
+text-decoration:none;
+font-sie:22px;
+color:#ccc;
+display:block;
+transition:0.3s;
+}
+.side-nav a:hover{
+color:#fff;
+}
+.side-nav .btn-close{
+position:absolute;
+top:0;
+right:22px;
+font-size:32px;
+margin-left:50px;
+}
+#main{
+transition:margin-left 0.5s;
+padding:20px;
+overflow:hidden;
+width:100%;
+}
+@media(max-width:568px){
+.navbar-nav{display:none}
+}
+</style>
+<script>
+(function() {
+	
+	function Slideshow( element ) {
+		this.el = document.querySelector( element );
+		this.init();
+	}
+	
+	Slideshow.prototype = {
+		init: function() {
+			this.wrapper = this.el.querySelector( ".slider-wrapper" );
+			this.slides = this.el.querySelectorAll( ".slide" );
+			this.previous = this.el.querySelector( ".slider-previous" );
+			this.next = this.el.querySelector( ".slider-next" );
+			this.index = 0;
+			this.total = this.slides.length;
+			this.timer = null;
+			
+			this.action();
+			this.stopStart();	
+		},
+		_slideTo: function( slide ) {
+			var currentSlide = this.slides[slide];
+			currentSlide.style.opacity = 1;
+			
+			for( var i = 0; i < this.slides.length; i++ ) {
+				var slide = this.slides[i];
+				if( slide !== currentSlide ) {
+					slide.style.opacity = 0;
+				}
+			}
+		},
+		action: function() {
+			var self = this;
+			self.timer = setInterval(function() {
+				self.index++;
+				if( self.index == self.slides.length ) {
+					self.index = 0;
+				}
+				self._slideTo( self.index );
+				
+			}, 2500);
+		},
+		stopStart: function() {
+			var self = this;
+			self.el.addEventListener( "mouseover", function() {
+				clearInterval( self.timer );
+				self.timer = null;
+				
+			}, false);
+			self.el.addEventListener( "mouseout", function() {
+				self.action();
+				
+			}, false);
+		}
+		
+		
+	};
+	
+	document.addEventListener( "DOMContentLoaded", function() {
+		
+		var slider = new Slideshow( "#main-slider" );
+		
+	});
+	
+	
+})();
+function openSlideMenu(){
+document.getElementById('side-menu').style.width='250px';
+document.getElementById('main').style.marginLeft='250px';
+ document.body.backgroundColor = "rgba(0,0,0,0.4)";
+}
+function closeSlideMenu(){
+document.getElementById('side-menu').style.width='0';
+document.getElementById('main').style.marginLeft='0';
+document.body.backgroundColor = "white";
+}
+
+</script>
+</head>
+<body >
+<nav class="navbar">
+<span class="open-slide">
+<a href="#" onclick="openSlideMenu()">
+<svg width="30" height="30">
+<path d="MO,5 30,5" stroke="black" stroke-width="5"/>
+<path d="MO,14 30,14" stroke="black" stroke-width="5"/>
+<path d="MO,23 30,23" stroke="black" stroke-width="5"/>
+</svg>
+</a>
+</span>
+<ul class="navbar-nav">
+<li><a href="#">home</a></li>
+<li><a href="#">about</a></li>
+<li><a href="#">services</a></li>
+<li><a href="#">contact</a></li>
+</ul>
+</nav>
+<div id="side-menu" class="side-nav">
+<a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
+<a href="#">home</a>
+<a href="#">about</a>
+<a href="#">services</a>
+<a href="#">contact</a>
+</div>
+<br><br>
+<div class="slider" id="main-slider"><!-- outermost container element -->
+	<div class="slider-wrapper"><!-- innermost wrapper element -->
+		<img src="2.jpg" alt="Second" class="slide"/>
+		<img src="4.jpg" alt="Fourth" class="slide"/>
+		<img src="11.jpg" alt="Fifth" class="slide" />
+	        <img src="6.jpg" alt="Sixth" class="slide" />
+		<img src="8.jpg" alt="Sixth" class="slide" />
+	</div>
+</div>
+	
+</body>
+</html>

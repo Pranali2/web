@@ -1,0 +1,244 @@
+<html>
+<head><title> Watchcart</title>
+ <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Telecon</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="pqr.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="carousel.css" rel="stylesheet">
+<style>
+html,body {
+	margin: 0;
+	padding: 0;
+        background-color:#AEB6BF ;
+        font-family: "Lato", sans-serif;
+}
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color:brown;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.slider {
+	width: 1024px;
+	margin: 2em auto;
+	
+}
+
+.slider-wrapper {
+	width: 150%;
+	height: 400px;
+	position: relative;
+}
+
+.slide {
+	float: left;
+	position: absolute;
+	width: 100%;
+	height: 200%;
+	opacity: 0;
+	transition: opacity 3s linear;
+}
+
+.slider-wrapper > .slide:first-child {
+	opacity: 1;
+}
+*{ margin:0px;
+padding:0px;}
+#container ul{
+list-style:none;
+}
+#container ul li{
+background-color:grey;
+width:100px;
+border:1px solid white;
+height:50px;
+line-height:50px;
+text-align:center;
+float:left;
+color:black;
+font-size:20px;
+position:relative;
+opacity:.8;
+
+}
+#container ul li:hover{
+background-color:pink;
+}
+#container ul ul{
+display:none;}
+#container ul li:hover > ul{ display:block;}
+#container ul ul ul {margin-left:100px;
+top:0px;
+position:absolute;
+}
+</style>
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+
+(function() {
+	
+	function Slideshow( element ) {
+		this.el = document.querySelector( element );
+		this.init();
+	}
+	
+	Slideshow.prototype = {
+		init: function() {
+			this.wrapper = this.el.querySelector( ".slider-wrapper" );
+			this.slides = this.el.querySelectorAll( ".slide" );
+			this.previous = this.el.querySelector( ".slider-previous" );
+			this.next = this.el.querySelector( ".slider-next" );
+			this.index = 0;
+			this.total = this.slides.length;
+			this.timer = null;
+			
+			this.action();
+			this.stopStart();	
+		},
+		_slideTo: function( slide ) {
+			var currentSlide = this.slides[slide];
+			currentSlide.style.opacity = 1;
+			
+			for( var i = 0; i < this.slides.length; i++ ) {
+				var slide = this.slides[i];
+				if( slide !== currentSlide ) {
+					slide.style.opacity = 0;
+				}
+			}
+		},
+		action: function() {
+			var self = this;
+			self.timer = setInterval(function() {
+				self.index++;
+				if( self.index == self.slides.length ) {
+					self.index = 0;
+				}
+				self._slideTo( self.index );
+				
+			}, 2500);
+		},
+		stopStart: function() {
+			var self = this;
+			self.el.addEventListener( "mouseover", function() {
+				clearInterval( self.timer );
+				self.timer = null;
+				
+			}, false);
+			self.el.addEventListener( "mouseout", function() {
+				self.action();
+				
+			}, false);
+		}
+		
+		
+	};
+	
+	document.addEventListener( "DOMContentLoaded", function() {
+		
+		var slider = new Slideshow( "#main-slider" );
+		
+	});
+	
+	
+})();
+
+</script>
+</head>
+<body >
+<div id="container">
+<ul>
+<li></br><div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Clients</a>
+  <a href="#">Contact</a>
+</div>
+
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; watchcart</span></br></li>
+
+<li><b>Shop</b><ul>
+                  <li> <b>Fastrack </b><ul> 
+                                 <li><a href="time7.html"><b>Men</b></li>
+                                   <li><a href="time8.html"><b> Women</b></li> </ul></li>
+                   <li><b> Sonata </b><ul>
+                                    <li><a href="time13.html"> <b>Men</b></li>
+                                   <li> <a href="time12.html"><b>Women</b></li> </ul></li>
+                   <li><b> Titan</b><ul>
+                                      <li> <a href="time5.html"><b>Men </b></a></li>
+                                   <li><a href="time6.html"><b> Women</b> </a></li> </ul></li>
+                  <li> <b>Maxima</b> <ul>
+                                          <li><a href="time9.html"> Men</li>
+                                   <li><a href="time4.html"> Women</li> </ul></li>
+                  <li><b>Quartz</b> <ul>
+                                       <li><a href="time10.html"> <b>Men</b></li>
+                                   <li><a href="time11.html">  <b>Women</b></li> </ul></li></ul>
+</li>
+<li> <b>login</b></li>
+<li><b>Registration</b></li>
+<li><b>About us</b></li>
+</ul>
+<center><h1 style="color:red";> <font size="10";> Watchcart</font></center></h1>
+ 
+<div class="slider" id="main-slider"><!-- outermost container element -->
+	<div class="slider-wrapper"><!-- innermost wrapper element -->
+		
+                 <img src="2.jpg"  alt="First" class="slide" /><!-- slides -->
+		<img src="4.jpg" alt="Second" class="slide" />
+		<img src="7.jpg" alt="Third" class="slide" />
+		<img src="8.jpg" alt="Fourth" class="slide" />
+		<img src="9.jpg" alt="Fifth" class="slide" />
+	    <img src="11.jpg" alt="Sixth" class="slide" />
+		<img src="12.jpg" alt="Sixth" class="slide" />
+	</div>
+</div>	
+</body>
+</html>

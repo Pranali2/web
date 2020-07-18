@@ -1,0 +1,22 @@
+<html>
+<head>
+<link rel="stylesheet"
+ type="text/css"
+ href="transaction.css">
+<title>Transaction</title>
+<h1 class="head">Delivery and Payment</h1>
+ </head>
+ <form action="file:///E:/e-com%20project/transaction/order%20summary/order%20summary.html"><br>
+ <h1 class="head2">Enter your delivery details</h1>
+
+ <p>Full Name :<input type="text" name="customer_name" size="30" placeholder="enter full name.." class="name" required></p>
+ <p>Mobile Number : <input type="text" name="mobile_number" maxlength="10" placeholder="enter your number.." class="mobile" required></p>
+ <p>E-mail Address(optional) :  &nbsp<input type="text" name="email" size="35" placeholder="enter your e-mail address(optional).." class="email"></p>
+ <p class="add">Address : <input type="text" class="addr" name="address" placeholder="enter your address.." required></p>
+ <h1 class="head1"><b>Select Payment method</b></h1>
+ <input type="radio" name="pay_opt" value="cre_card" required>Credit Card<br><br>
+ <input type="radio" name="pay_opt" value="deb_Card">Debit card<br><br>
+ <input type="radio" name="pay_opt" value="cod">Cash on delivery<br><br>
+ <input type="submit" name="submit" value="Proceed">
+ </form>
+ </html>

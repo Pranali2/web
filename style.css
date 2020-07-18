@@ -1,0 +1,124 @@
+body{
+font-family:"arial",serif;
+background-color:#f4f4f4;
+overflow-x:hidden;
+}
+.navbar{
+background-color:#3b5998;
+overflow:hidden;
+height:63px;
+}
+.navbar a{
+float:left;
+display:block;
+color:#f2f2f2;
+text-align:center;
+padding:14px 16px;
+font-size:25px;
+}
+.navbar ul{
+margin:8px 0 0 0;
+list-style:none;
+}
+.navbar a:hover{
+background-color:white;
+color:blue;
+}
+.side-nav{
+height:100%;
+width:0;
+position:fixed;
+z-index:1;
+top:0;
+left:0;
+background-color:#111;
+opacity:.9;
+overflow-x:hidden;
+padding-top:60px;
+transition:0.5s;
+}
+.side-nav a{
+padding:20px 10px 0px 20px;
+text-decoration:none;
+font-sie:25px;
+color:#ccc;
+display:block;
+transition:0.3s;
+}
+.side-nav a:hover{
+background-color:white;
+color:blue;
+}
+#container ul{
+list-style:none;
+}
+#container ul li{
+background-color:black;
+width:200px;
+/*border:1px solid white;*/
+height:50px;
+line-height:50px;
+text-align:center;
+float:left;
+color:white;
+font-size:20px;
+position:relative;
+opacity:.9;
+
+}
+#container ul li:hover{
+background-color:green;
+}
+#container ul ul{
+display:none;}
+#container ul li:hover > ul{ display:block;}
+#container ul ul ul {margin-left:200px;
+top:0px;
+position:absolute;
+}
+.side-nav .btn-close{
+position:absolute;
+top:2px;
+right:10px;
+font-size:25px;
+margin-right:50px;
+}
+#main{
+transition:margin-left 0.5s;
+padding:20px;
+overflow:hidden;
+width:100%;
+}
+@media(max-width:568px){
+.navbar-nav{display:none}
+}
+html,body {
+	margin: 0;
+	padding: 0;
+        background-color:#AEB6BF ;
+	background-image: url(watches.jpg);
+}
+.slider {
+	width: 1600px;
+	margin: 2em auto;
+	
+}
+
+.slider-wrapper {
+	width: 100%;
+	height: 600px;
+	position: relative;
+}
+
+.slide {
+	float: left;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	transition: opacity 2s linear;
+}
+
+.slider-wrapper > .slide:first-child {
+	opacity: 8;
+}

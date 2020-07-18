@@ -1,0 +1,77 @@
+<html>
+<head><title>credit card</title>
+<style>
+div.head{font-size:80;}
+td.name{font-size:20;}
+td.type{font-size:20;}
+td.cvv{font-size:20;}
+td.card{font-size:20;}
+td.date{font-size:20;}
+h3.credit_details{font-size:35;text-align:center;color:#551a8b}
+select.card {
+    width: 100%;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+}
+select.date{width: 30%;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f1f1f1;}
+select.year{width: 60%;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f1f1f1;}
+input[type=text].{
+    width: 25%;
+    padding: 10px 20px;
+    margin: 2px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+input[type=password]{
+    width: 100%;
+    padding: 10px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+button.order{background-color:#551a8b;border:none;color:white;padding: 15px 32px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;}
+</style>
+</head>
+<body>
+<div class="head" align="center" style="background-color:purple;color:white;">Payment</div><br><br>
+<h3 class="credit_details">Credit Card Details</h3>
+<table border="0" align="center" cellspacing="12">
+ <td class="name">Name on Card:</td>
+ <td><input type="text" name="credit_name" size="25" placeholder="name on card.." required></td>
+</tr>
+<tr>
+ <td class="card">Card Number:</td>
+ <td><input type="text" name="credit_number" maxlength="14"  size="25" placeholder="number of card.." required></td>
+<tr>
+<tr>
+ <td class="type">Type of Card:</td>
+ <td><select class="card"><option value="Visa">Visa</option><br><option value="rupay">RuPay</option><br><option value="mastercard">MasterCard</option></td>
+<tr>
+<tr>
+ <td class="cvv">CVV:</td>
+ <td><input type="password" name="credit_pass" maxlength="3" required></td>
+</tr>
+<tr>
+ <td class="date">Expiration Date:</td>
+ <td><select class="date"><option>1<option>2<option>3<option>4<option>5<option>6<option>7<option>8<option>9<option>10<option>11<option>12</select>&nbsp;&nbsp;
+     <select class="year"><option>2017<option>2018<option>2019<option>2020<option>2021<option>2022<option>2023<option>2024<option>2025<option>2026
+             <option>2027<option>2028<option>2029<option>2030</select>
+ <td>
+ </tr>
+</table><br>
+ <center><button class="order">Order</button></center>
+</body></html>

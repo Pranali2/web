@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device=width",initial-scale=1.0">
+<meta http-equiv="X-UA-Comapatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Watchcart</title>
+    <link rel="stylesheet" href="style.css">
+
+<nav class="navbar">
+<span class="open-slide">
+<a href="#" onclick="openSlideMenu()">Titan Collections
+<svg width="30" height="30">
+<path d="MO,5 30,5" stroke="gray" stroke-width="5"/>
+<path d="MO,14 30,14" stroke="gray" stroke-width="5"/>
+<path d="MO,23 30,23" stroke="gray" stroke-width="5"/>
+</svg>
+</a>
+</span>
+<ul class="navbar-nav">
+
+</ul>
+</nav>
+<div id="side-menu" class="side-nav">
+<a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
+
+<a href="time5.html">Male</a>
+<a href="time6.html">Female</a>
+
+</head>
+</div>
+<div class="slider" id="main-slider"><!-- outermost container element -->
+	<div class="slider-wrapper"><!-- innermost wrapper element -->
+		<img src="titan.jpg" alt="Second" class="slide"/>
+		
+	</div>
+</div>
+<script>
+(function() {
+	
+	function Slideshow( element ) {
+		this.el = document.querySelector( element );
+		this.init();
+	}
+	
+	Slideshow.prototype = {
+		init: function() {
+			this.wrapper = this.el.querySelector( ".slider-wrapper" );
+			this.slides = this.el.querySelectorAll( ".slide" );
+			this.previous = this.el.querySelector( ".slider-previous" );
+			this.next = this.el.querySelector( ".slider-next" );
+			this.index = 0;
+			this.total = this.slides.length;
+			this.timer = null;
+			
+			this.action();
+			this.stopStart();	
+		},
+		_slideTo: function( slide ) {
+			var currentSlide = this.slides[slide];
+			currentSlide.style.opacity = 1;
+			
+			for( var i = 0; i < this.slides.length; i++ ) {
+				var slide = this.slides[i];
+				if( slide !== currentSlide ) {
+					slide.style.opacity = 0;
+				}
+			}
+		},
+		action: function() {
+			var self = this;
+			self.timer = setInterval(function() {
+				self.index++;
+				if( self.index == self.slides.length ) {
+					self.index = 0;
+				}
+				self._slideTo( self.index );
+				
+			}, 2500);
+		},
+		stopStart: function() {
+			var self = this;
+			self.el.addEventListener( "mouseover", function() {
+				clearInterval( self.timer );
+				self.timer = null;
+				
+			}, false);
+			self.el.addEventListener( "mouseout", function() {
+				self.action();
+				
+			}, false);
+		}
+		
+		
+	};
+	
+	document.addEventListener( "DOMContentLoaded", function() {
+		
+		var slider = new Slideshow( "#main-slider" );
+		
+	});
+	
+	
+})();
+function openSlideMenu(){
+document.getElementById('side-menu').style.width='250px';
+document.getElementById('main').style.marginLeft='250px';
+ document.body.backgroundColor = "rgba(0,0,0,0.4)";
+}
+function closeSlideMenu(){
+document.getElementById('side-menu').style.width='0';
+document.getElementById('main').style.marginLeft='0';
+document.body.backgroundColor = "white";
+}
+</script>
+</body></html>
